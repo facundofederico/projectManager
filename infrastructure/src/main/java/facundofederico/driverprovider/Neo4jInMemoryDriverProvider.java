@@ -1,16 +1,16 @@
-package facundofederico;
+package facundofederico.driverprovider;
 
+import facundofederico.Validation;
 import org.neo4j.driver.*;
 import org.neo4j.harness.Neo4j;
 import org.neo4j.harness.Neo4jBuilders;
-
 import static facundofederico.Neo4jTaskRepository.CONSTRAINTS_QUERIES;
 
-public class Neo4jMockDriverProvider implements DriverProvider {
+public class Neo4jInMemoryDriverProvider implements DriverProvider {
     private final Neo4j _server;
     private final Driver _driver;
 
-    public Neo4jMockDriverProvider() {
+    public Neo4jInMemoryDriverProvider() {
         _server = Neo4jBuilders.newInProcessBuilder()
                 .withDisabledServer()
                 .withProcedure(Validation.class)

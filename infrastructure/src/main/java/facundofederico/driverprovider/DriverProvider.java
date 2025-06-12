@@ -1,4 +1,4 @@
-package facundofederico;
+package facundofederico.driverprovider;
 
 import org.neo4j.driver.Driver;
 

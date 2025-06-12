@@ -1,5 +1,7 @@
 package facundofederico;
 
+import facundofederico.driverprovider.DriverProvider;
+import facundofederico.driverprovider.Neo4jInMemoryDriverProvider;
 import facundofederico.repository.TaskAlreadyExistsException;
 import facundofederico.repository.TaskNotFoundException;
 import org.junit.After;
@@ -14,7 +16,7 @@ public class Neo4jTaskRepositoryIntegrationTests {
 
     @Before
     public void setUp() {
-        _driverProvider = new Neo4jMockDriverProvider();
+        _driverProvider = new Neo4jInMemoryDriverProvider();
     }
 
     @After
