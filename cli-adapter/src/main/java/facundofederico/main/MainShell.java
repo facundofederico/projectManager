@@ -2,14 +2,12 @@ package facundofederico.main;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import facundofederico.main.commands.HelpCommand;
-import facundofederico.main.commands.MainCommand;
-import facundofederico.main.commands.project.ProjectCommand;
-import facundofederico.main.services.GuiceFactory;
+import facundofederico.commands.HelpCommand;
+import facundofederico.commands.MainCommand;
+import facundofederico.commands.project.ProjectCommand;
+import facundofederico.services.GuiceFactory;
+import facundofederico.services.Utils;
 import picocli.CommandLine;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MainShell {
@@ -25,7 +23,7 @@ public class MainShell {
 
             if (line.trim().equalsIgnoreCase("exit")) break;
 
-            String[] inputArgs = line.trim().split("\\s+");
+            String[] inputArgs = Utils.getParsedCommandLine(line);
             cmd.execute(inputArgs);
         }
     }

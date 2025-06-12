@@ -1,4 +1,4 @@
-package facundofederico.main.commands.tasks;
+package facundofederico.commands.tasks;
 
 import com.google.inject.Inject;
 import facundofederico.controller.CliTaskController;
@@ -14,10 +14,10 @@ public class TaskCreateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name for the task (must be unique)", required = true)
     String name;
 
-    @Option(names = {"-d", "--description"}, description = "Description for the task")
+    @Option(names = {"-d", "--description"}, description = "Description for the task", required = true)
     String description;
 
-    @Option(names = {"-p", "--parent"}, description = "Task parent's name")
+    @Option(names = {"-p", "--parent"}, description = "Task parent's name", required = true)
     String parent;
 
     @Inject

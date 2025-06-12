@@ -1,4 +1,4 @@
-package facundofederico.main.commands.project;
+package facundofederico.commands.project;
 import picocli.CommandLine.Command;
 
 @Command(name = "project", description = "Parent of project commands", subcommands = {

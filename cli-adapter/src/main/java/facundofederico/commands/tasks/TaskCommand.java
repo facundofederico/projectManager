@@ -1,4 +1,4 @@
-package facundofederico.main.commands.tasks;
+package facundofederico.commands.tasks;
 import picocli.CommandLine.Command;
 
 @Command(name = "task", description = "Parent of task commands", subcommands = {

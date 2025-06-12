@@ -1,4 +1,4 @@
-package facundofederico.main.services;
+package facundofederico.services;
 
 import java.util.Scanner;
 

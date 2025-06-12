@@ -1,10 +1,8 @@
-package facundofederico.main.commands.project;
+package facundofederico.commands.project;
 
 import com.google.inject.Inject;
 import facundofederico.controller.CliTaskController;
-import facundofederico.controller.ProjectDto;
-import facundofederico.controller.TaskDto;
-import facundofederico.main.services.Utils;
+import facundofederico.services.Utils;
 import facundofederico.repository.TaskNotFoundException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

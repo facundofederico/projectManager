@@ -1,4 +1,4 @@
-package facundofederico.main.services;
+package facundofederico.services;
 
 import com.google.inject.Injector;
 import picocli.CommandLine.IFactory;

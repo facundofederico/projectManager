@@ -1,4 +1,4 @@
-package facundofederico.main.commands;
+package facundofederico.commands;
 
 import picocli.CommandLine.Command;
 

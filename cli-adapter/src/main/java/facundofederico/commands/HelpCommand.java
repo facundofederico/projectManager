@@ -1,4 +1,4 @@
-package facundofederico.main.commands;
+package facundofederico.commands;
 
 import picocli.CommandLine.Command;
 
@@ -10,6 +10,7 @@ public class HelpCommand implements Runnable {
         System.out.println();
         System.out.println("SUPPORTED COMMANDS");
         System.out.println("help");
+        System.out.println("exit");
         System.out.println();
         System.out.println("project create -n [name] -d [description]");
         System.out.println("project open -n [name]");

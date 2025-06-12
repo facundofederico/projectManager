@@ -1,4 +1,4 @@
-package facundofederico.main.commands.tasks;
+package facundofederico.commands.tasks;
 
 import com.google.inject.Inject;
 import facundofederico.controller.CliTaskController;
@@ -13,7 +13,7 @@ public class TaskUpdateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name of the task to update", required = true)
     String name;
 
-    @Option(names = {"-d", "--description"}, description = "Description for the task")
+    @Option(names = {"-d", "--description"}, description = "Description for the task", required = true)
     String description;
 
     @Inject

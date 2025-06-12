@@ -1,4 +1,4 @@
-package facundofederico.main.commands.project;
+package facundofederico.commands.project;
 
 import com.google.inject.Inject;
 import facundofederico.controller.CliTaskController;
@@ -11,7 +11,7 @@ public class ProjectCreateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name for the project (must be unique)", required = true)
     String name;
 
-    @Option(names = {"-d", "--description"}, description = "Description for the project")
+    @Option(names = {"-d", "--description"}, description = "Description for the project", required = true)
     String description;
 
     @Inject

@@ -6,7 +6,7 @@ import facundofederico.Neo4jTaskRepository;
 import facundofederico.TaskService;
 import facundofederico.controller.CliTaskController;
 import facundofederico.driverprovider.Neo4jInMemoryDriverProvider;
-import facundofederico.main.services.InputService;
+import facundofederico.services.InputService;
 
 public class AppModule extends AbstractModule {
     @Override
