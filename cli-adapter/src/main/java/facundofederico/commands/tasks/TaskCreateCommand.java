@@ -1,15 +1,15 @@
 package facundofederico.commands.tasks;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.repository.TaskAlreadyExistsException;
 import facundofederico.repository.TaskNotFoundException;
+import facundofederico.services.Utils;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-import java.time.Duration;
-
-@Command(name = "create", description = "Create a new task")
+@Command(name = "create", description = "Create a new task", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class TaskCreateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name for the task (must be unique)", required = true)
     String name;
@@ -20,6 +20,18 @@ public class TaskCreateCommand implements Runnable {
     @Option(names = {"-p", "--parent"}, description = "Task parent's name", required = true)
     String parent;
 
+    @Option(names = {"-dd", "--durationDays"}, description = "Task duration's days component")
+    Long durationDays;
+
+    @Option(names = {"-dh", "--durationHours"}, description = "Task duration's hours component")
+    Long durationHours;
+
+    @Option(names = {"-dm", "--durationMinutes"}, description = "Task duration's minutes component")
+    Long durationMinutes;
+
+    @Option(names = {"-ds", "--durationSeconds"}, description = "Task duration's seconds component")
+    Long durationSeconds;
+
     @Inject
     CliTaskController _controller;
 
@@ -28,7 +40,7 @@ public class TaskCreateCommand implements Runnable {
         System.out.println(String.format("Creating task with name '%s'...", name));
 
         try {
-            _controller.createTask(parent, name, description, Duration.ofDays(3));
+            _controller.createTask(parent, name, description, Utils.getDurationFrom(durationDays, durationHours, durationMinutes, durationSeconds));
             System.out.println("Task created");
         }
         catch (TaskNotFoundException e) {

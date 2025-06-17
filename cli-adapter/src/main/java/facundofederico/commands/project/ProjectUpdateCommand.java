@@ -1,13 +1,14 @@
 package facundofederico.commands.project;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.repository.TaskAlreadyExistsException;
 import facundofederico.repository.TaskNotFoundException;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "update", description = "Update a project's description")
+@Command(name = "update", description = "Update a project's description", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class ProjectUpdateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name of the project to update", required = true)
     String name;

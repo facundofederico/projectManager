@@ -1,13 +1,14 @@
 package facundofederico.commands.project;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.services.Utils;
 import facundofederico.repository.TaskNotFoundException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "open", description = "Open project")
+@Command(name = "open", description = "Open project", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class ProjectOpenCommand implements Runnable {
     @CommandLine.Option(names = {"-n", "--name"}, description = "Name of the project", required = true)
     String name;

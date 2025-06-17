@@ -16,11 +16,10 @@ public class Neo4jInMemoryDriverProvider implements DriverProvider {
                 .withProcedure(Validation.class)
                 .build();
         _driver = GraphDatabase.driver(_server.boltURI(), Config.defaultConfig());
-
-        InitializeDb();
+        initializeDb();
     }
 
-    private void InitializeDb() {
+    private void initializeDb() {
         for (var query : CONSTRAINTS_QUERIES) {
             try (Session session = _driver.session()) {
                 session.executeWrite(tx -> {

@@ -1,16 +1,32 @@
 # Project Manager
-Small project for practicing Java and Neo4j.
 
-The main idea is to provide a solution that allows the user to create 'projects' 
-and a directional graph of tasks within it. Later this graph can be used to calculate 
-the project total duration using a critical path calculation, essentially creating
-a Grantt chart. (Note: I could actually rename the project to something like that)
+## Objective and use
+The main objective behind this project is to get some hands-on practice using:
+- Java
+- Neo4j
+- Docker
 
-The project is divided in modules in such a way that allows the future development of
-alternative storage providers (for now I wanted to take advantage of a graph database engine
-such as Neo4j, but it could be implemented in a simple JSON file) and controllers 
-(such as a CLI, a REST API or a visual UI).
+The solution itself provides a tool for users to create projects, define a hierarchy
+of tasks for it, and use it to calculate the total time required for the project using
+a critical path calculation (like in a Grantt chart).
 
-For now the implementation only covers a tree structure, but with a few tweaks I should
-be able to provide a full directional graph support. Measures will be taken to avoid
-the creation of loops within the graph.
+For this version, I chose to keep it simple by sticking to a simple hierarchy, but it is
+my idea for a future version to allow users to define directed graphs by manually linking
+'needed' subtasks to a task.
+
+## Development notes
+The project is divided in 3 modules (domain, infrastructure and adapter), following a
+hexagonal architecture:
+
+Controller -> Domain <- Repository
+
+This allows me to keep the domain logic where it belongs, and to define, if I wanted,
+different implementations for the Controller and the Repository.
+
+In this implementation, I'm using a Neo4j in-memory repository and a CLI controller. This of
+course if far from ideal for a real project (both for the use of volatile memory and
+poorly intuitive UI), but is enough for the goal of this experiment. In a real-life
+scenario, we would use an actual instance of a Neo4j database, a visual interface (or
+API REST that communicates with a good-looking frontend page), and user authentication.
+
+This application is being containerized in a docker file so anyone can try it.

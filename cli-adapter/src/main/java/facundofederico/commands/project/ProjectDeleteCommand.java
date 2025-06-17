@@ -1,13 +1,14 @@
 package facundofederico.commands.project;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.services.InputService;
 import facundofederico.repository.TaskNotFoundException;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "delete", description = "Delete a project")
+@Command(name = "delete", description = "Delete a project", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class ProjectDeleteCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name of the project to delete", required = true)
     String name;

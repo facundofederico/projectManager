@@ -1,7 +1,8 @@
 package facundofederico.commands.project;
+import facundofederico.commands.VersionProvider;
 import picocli.CommandLine.Command;
 
-@Command(name = "project", description = "Parent of project commands", subcommands = {
+@Command(name = "project", description = "Parent of project commands", mixinStandardHelpOptions = true, versionProvider = VersionProvider .class, subcommands = {
         ProjectCreateCommand.class,
         ProjectListCommand.class,
         ProjectUpdateCommand.class,

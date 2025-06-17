@@ -1,11 +1,12 @@
 package facundofederico.commands.project;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.controller.ProjectDto;
 import picocli.CommandLine.Command;
 
-@Command(name = "list", description = "List projects")
+@Command(name = "list", description = "List projects", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class ProjectListCommand implements Runnable {
     @Inject
     CliTaskController _controller;

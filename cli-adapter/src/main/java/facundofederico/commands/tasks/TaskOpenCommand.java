@@ -1,13 +1,14 @@
 package facundofederico.commands.tasks;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.services.Utils;
 import facundofederico.repository.TaskNotFoundException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "open", description = "Open task")
+@Command(name = "open", description = "Open task", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class TaskOpenCommand implements Runnable {
     @CommandLine.Option(names = {"-n", "--name"}, description = "Name of the task", required = true)
     String name;

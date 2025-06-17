@@ -1,12 +1,13 @@
 package facundofederico.commands.project;
 
 import com.google.inject.Inject;
+import facundofederico.commands.VersionProvider;
 import facundofederico.controller.CliTaskController;
 import facundofederico.repository.TaskAlreadyExistsException;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "create", description = "Create a new project")
+@Command(name = "create", description = "Create a new project", mixinStandardHelpOptions = true, versionProvider = VersionProvider.class)
 public class ProjectCreateCommand implements Runnable {
     @Option(names = {"-n", "--name"}, description = "Name for the project (must be unique)", required = true)
     String name;

@@ -18,6 +18,14 @@ public class Utils {
         return String.format("%dd %dh %dm %ds", days, hours, minutes, seconds);
     }
 
+    public static Duration getDurationFrom(Long days, Long hours, Long minutes, Long seconds){
+        return Duration
+                .ofDays((days != null) ? days : 0)
+                .plusHours((hours != null) ? hours : 0)
+                .plusMinutes((minutes != null) ? minutes : 0)
+                .plusSeconds((seconds != null) ? seconds : 0);
+    }
+
     public static String[] getParsedCommandLine(String input){
         List<String> tokens = new ArrayList<>();
         Matcher matcher = Pattern.compile("\"([^\"]*)\"|(\\S+)").matcher(input);

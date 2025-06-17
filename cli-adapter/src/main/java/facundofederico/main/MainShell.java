@@ -2,9 +2,9 @@ package facundofederico.main;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import facundofederico.commands.HelpCommand;
 import facundofederico.commands.MainCommand;
 import facundofederico.commands.project.ProjectCommand;
+import facundofederico.commands.tasks.TaskCommand;
 import facundofederico.services.GuiceFactory;
 import facundofederico.services.Utils;
 import picocli.CommandLine;
@@ -15,7 +15,7 @@ public class MainShell {
         CommandLine cmd = setUpCommandLine();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to Project Planner. Write 'help' to get a list of possible commands.");
+        System.out.println("Welcome to Project Manager. Write '-h' to get a list of possible commands.");
 
         while (true) {
             System.out.print("> ");
@@ -34,7 +34,7 @@ public class MainShell {
         CommandLine cmd = new CommandLine(MainCommand.class, factory);
 
         cmd.addSubcommand(ProjectCommand.class);
-        cmd.addSubcommand(HelpCommand.class);
+        cmd.addSubcommand(TaskCommand.class);
 
         return cmd;
     }
