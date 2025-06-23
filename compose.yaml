@@ -1,4 +1,5 @@
-version: "3.9"
+networks:
+  backend:
 
 services:
   neo4j:
@@ -17,6 +18,8 @@ services:
     volumes:
       - neo4j_data:/data
       - neo4j_logs:/logs
+    networks:
+      - backend
 
   app:
     image: project-manager
@@ -32,6 +35,8 @@ services:
       - "8080:8080"
     stdin_open: true
     tty: true
+    networks:
+      - backend
 
 volumes:
   neo4j_data:

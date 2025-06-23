@@ -12,8 +12,7 @@ public class Neo4jTaskRepository implements TaskRepository {
     private final Driver neo4jDriver;
     private GraphBuilder _graphBuilderCache;
     public static final List<String> CONSTRAINTS_QUERIES = List.of(
-        "CREATE CONSTRAINT task_name_uniqueness FOR (t:Task) REQUIRE t.name IS UNIQUE"
-//        "CREATE CONSTRAINT task_name_existence FOR (t:Task) REQUIRE t.name IS NOT NULL"
+        "CREATE CONSTRAINT task_name_uniqueness IF NOT EXISTS FOR (t:Task) REQUIRE t.name IS UNIQUE"
     );
 
     public Neo4jTaskRepository(DriverProvider driverFactory){
