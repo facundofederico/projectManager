@@ -11,7 +11,7 @@ import picocli.CommandLine.Command;
 public class TaskCommand implements Runnable {
     @Override
     public void run() {
-        System.out.println("Use a subcommand like: create, open, etc.");
+        System.out.println("Use -h to see subcommands");
     }
 }
 

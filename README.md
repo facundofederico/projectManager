@@ -23,10 +23,17 @@ Controller -> Domain <- Repository
 This allows me to keep the domain logic where it belongs, and to define, if I wanted,
 different implementations for the Controller and the Repository.
 
-In this implementation, I'm using a Neo4j in-memory repository and a CLI controller. This of
-course if far from ideal for a real project (both for the use of volatile memory and
-poorly intuitive UI), but is enough for the goal of this experiment. In a real-life
-scenario, we would use an actual instance of a Neo4j database, a visual interface (or
-API REST that communicates with a good-looking frontend page), and user authentication.
+In this implementation, I'm using a Neo4j repository and a CLI controller.
 
+For future versions, I will also provide:
+- Full directed-graph support
+- API REST controller
+- User authentication
+
+## Installation
 This application is being containerized in a docker file so anyone can try it.
+
+- Clone the repository
+- Build the image with `docker build -t project-manager .`
+- Create the neo4j container with `docker compose up -d neo4j`
+- Run the app interactively with `docker compose run --rm app`

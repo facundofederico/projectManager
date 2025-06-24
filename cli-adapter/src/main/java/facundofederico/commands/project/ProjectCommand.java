@@ -12,7 +12,7 @@ import picocli.CommandLine.Command;
 public class ProjectCommand implements Runnable {
     @Override
     public void run() {
-        System.out.println("Use a subcommand like: create, list, etc.");
+        System.out.println("Use -h to see subcommands");
     }
 }
 
